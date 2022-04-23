@@ -23,6 +23,8 @@ class User extends Authenticatable
     //     'password',
     // ];
 
+    protected $guarded = [];
+
     protected $connection = 'pgsql2';
 
     /**
@@ -40,7 +42,7 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 }

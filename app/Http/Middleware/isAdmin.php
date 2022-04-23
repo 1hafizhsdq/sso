@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckUser
+class isAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,6 +16,10 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if(session()->get('user')['nip'] == "admin"){
+            return $next($request);
+        }
+
+        return redirect('/');
     }
 }

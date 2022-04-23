@@ -33,11 +33,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
+        {{-- <ul class="navbar-nav">
           <li class="nav-item">
             <a href="index3.html" class="nav-link">Home</a>
           </li>
-        </ul>
+        </ul> --}}
 
         <!-- SEARCH FORM -->
         {{-- <form class="form-inline ml-0 ml-md-3">
@@ -58,20 +58,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-user"></i>
             <span class="badge badge-warning navbar-badge"></span>
-            {{ Auth::user()->username }}
+            @if (session()->get('user')['nip'] == "admin")
+              {{ session()->get('user')['nama'] }}
+            @else
+              {{ Auth::user()->username }}
+            @endif
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
               <i class="fas fa-key mr-2"></i> Ubah Username / Password
             </a>
             <div class="dropdown-divider"></div>
-            <a href="{{ route('logout') }}" class="dropdown-item"
-              onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-              <i class="fas fa-sign-out-alt mr-2"></i> Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-            </form>
+            @if (session()->get('user')['nip'] == "admin")
+              <a href="{{ route('end') }}" class="dropdown-item">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+              </a>
+            @else
+              <a href="{{ route('logout') }}" class="dropdown-item"
+                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+            @endif
           </div>
         </li>
       </ul>

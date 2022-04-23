@@ -18,7 +18,6 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
             Session::flash('tidaklogin','Anda belum login, Silahkan login terlebih dahulu!');
             return route('login');
-            // return back()->with('error', 'Anda belum login, silahkan login terlebih dahulu!');
         }
     }
 }
