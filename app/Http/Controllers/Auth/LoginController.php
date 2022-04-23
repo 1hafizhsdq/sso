@@ -65,7 +65,7 @@ class LoginController extends Controller
         ];
         $jwt = JWT::encode($payload,LoginController::$SECRET_KEY, 'HS256');
         // setcookie('logged_in-SDA',$jwt);
-        setcookie('logged_in-SDA',$jwt,time()+100,'/', '127.0.0.1','',FALSE);
+        setcookie('logged_in-SDA',$jwt,time()+100,'/', '','',FALSE);
     }
 
     public function logout(Request $request)
