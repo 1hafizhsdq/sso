@@ -25,7 +25,7 @@
                             <span class="info-box-icon bg-info"><i class="fab fa-safari"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Aplikasi</span>
-                                <a class="info-box-number">Masuk Ke Aplikasi</a>
+                                <a href="/aplikasi" class="info-box-number">Masuk Ke Aplikasi</a>
                             </div>
                         </div>
                     </div>
