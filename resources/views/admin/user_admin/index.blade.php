@@ -22,7 +22,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Aplikasi</h5>
+                        <h5 class="card-title">User Admin</h5>
         
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -36,21 +36,21 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Nama Aplikasi</th>
-                                            <th>Route</th>
-                                            <th width="13%" align="center"><a href="/aplikasi/create" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Tambah</a></th>
+                                            <th>Nama Admin</th>
+                                            <th>Username</th>
+                                            <th width="13%" align="center"><a href="/useradmin/create" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Tambah</a></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($aplikasi as $apk)
+                                        @foreach ($userAdmin as $apk)
                                             <tr>
-                                                <td>{{ $apk->nama_aplikasi }}</td>
-                                                <td>{{ $apk->route_aplikasi }}</td>
+                                                <td>{{ $apk->username }}</td>
+                                                <td>{{ $apk->name }}</td>
                                                 <td align="center">
-                                                    <form action="{{ route('aplikasi.destroy', $apk->id) }}" method="POST">
+                                                    <form action="{{ route('useradmin.destroy', $apk->id) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <a href="aplikasi/{{ $apk->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="useradmin/{{ $apk->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
                                                         <button type="submit" onclick="confirm('Apakah anda yakin akan menghapus data ini!')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                                     </form>
                                                 </td>

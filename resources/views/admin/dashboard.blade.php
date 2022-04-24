@@ -43,7 +43,7 @@
                             <span class="info-box-icon bg-warning"><i class="fas fa-user-cog"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">User Admin</span>
-                                <a class="info-box-number">Masuk Ke User Admin</a>
+                                <a href="/useradmin" class="info-box-number">Masuk Ke User Admin</a>
                             </div>
                         </div>
                     </div>

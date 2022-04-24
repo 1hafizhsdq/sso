@@ -4,6 +4,7 @@ use App\Http\Controllers\AplikasiController;
 use App\Http\Controllers\AuthAdmin\LoginAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,7 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/end', [LoginAdminController::class, 'logout'])->name('end');
     
     Route::resource('/aplikasi', 'App\Http\Controllers\AplikasiController');
+    Route::resource('/useradmin', UserAdminController::class);
     // Route::get('/aplikasi', [AplikasiController::class, 'index'])->name('aplikasi');
 });
 
