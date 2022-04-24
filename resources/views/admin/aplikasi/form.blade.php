@@ -40,11 +40,11 @@
                                     @endif
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="nama_aplikasi">Nama Aplikasi</label>
+                                            <label for="nama_aplikasi">Nama Aplikasi <small class="text-danger">*</small></label>
                                             <input type="text" class="form-control" name="nama_aplikasi" id="nama_aplikasi" placeholder="Masukkan nama aplikasi" value="{{ ($status == 1) ? $data->nama_aplikasi : "" }}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="rote_aplikasi">Route Aplikasi</label>
+                                            <label for="rote_aplikasi">Route Aplikasi <small class="text-danger">*</small></label>
                                             <input type="text" class="form-control" name="route_aplikasi" id="rote_aplikasi" placeholder="Masukkan route aplikasi" value="{{ ($status == 1) ? $data->route_aplikasi : "" }}">
                                         </div>
                                         <div class="form-group">

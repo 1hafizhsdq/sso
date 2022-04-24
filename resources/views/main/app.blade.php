@@ -29,7 +29,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="container">
       <a href="{{ asset('adminlte') }}/index3.html" class="navbar-brand">
         <img src="{{ asset('adminlte') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">PEMERINTAH KABUPATEN SIDOARJO</span>
+        <span class="brand-text font-weight-light" style="color: whitesmoke;"><b>PEMERINTAH KABUPATEN SIDOARJO</b></span>
       </a>
 
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
+          <a class="nav-link" data-toggle="dropdown" href="#" style="color: whitesmoke;">
             <i class="far fa-user"></i>
             <span class="badge badge-warning navbar-badge"></span>
             @if (session()->get('user')['nip'] == "admin")

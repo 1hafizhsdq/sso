@@ -38,7 +38,7 @@
                                         <tr>
                                             <th>Nama Aplikasi</th>
                                             <th>Route</th>
-                                            <th width="13%"><a href="/aplikasi/create" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Tambah</a></th>
+                                            <th width="13%" align="center"><a href="/aplikasi/create" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Tambah</a></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -46,13 +46,12 @@
                                             <tr>
                                                 <td>{{ $apk->nama_aplikasi }}</td>
                                                 <td>{{ $apk->route_aplikasi }}</td>
-                                                <td>
-                                                    <a href="aplikasi/{{ $apk->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
-                                                    {{-- <a href="aplikasi/destroy/{{ $apk->id }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
+                                                <td align="center">
                                                     <form action="{{ route('aplikasi.destroy', $apk->id) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button type="submit" onclick="confirm('Apakah anda yakin akan menghapus data ini!')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                                        <a href="aplikasi/{{ $apk->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a type="submit" onclick="confirm('Apakah anda yakin akan menghapus data ini!')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                     </form>
                                                 </td>
                                             </tr>
