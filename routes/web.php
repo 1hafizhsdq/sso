@@ -4,6 +4,7 @@ use App\Http\Controllers\AplikasiController;
 use App\Http\Controllers\AuthAdmin\LoginAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +41,8 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::resource('/aplikasi', 'App\Http\Controllers\AplikasiController');
     Route::resource('/useradmin', UserAdminController::class);
     // Route::get('/aplikasi', [AplikasiController::class, 'index'])->name('aplikasi');
+    Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');
+    Route::get('/pns-skpd/{skpd}', [PegawaiController::class, 'pnsBySkpd'])->name('pns-skpd');
+    Route::get('/reset-pegawai/{nip}', [PegawaiController::class, 'reset'])->name('reset-pegawai');
 });
 

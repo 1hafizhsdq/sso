@@ -34,7 +34,7 @@
                             <span class="info-box-icon bg-success"><i class="fas fa-users"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Pegawai</span>
-                                <a class="info-box-number">Masuk Ke Aplikasi</a>
+                                <a href="/pegawai" class="info-box-number">Masuk Ke Pegawai</a>
                             </div>
                         </div>
                     </div>
