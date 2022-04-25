@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aplikasi;
 use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class HomeController extends Controller
         //     // return route('login');
         //     return 'belum login';
         // }
-        return view('main.app');
+        $data['aplikasi'] = Aplikasi::get();
+        return view('index',$data);
     }
 
     public function updateAkun(){

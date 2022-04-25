@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AplikasiController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AuthAdmin\LoginAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +28,11 @@ Route::get('/', function () {
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/internal', [LoginAdminController::class, 'index'])->name('internal');
 Route::post('/login-internal', [LoginAdminController::class, 'login'])->name('login-internal');
+
+Route::get('forget-password', [ForgotPasswordController::class, 'ForgetPassword'])->name('ForgetPasswordGet');
+Route::post('forget-password', [ForgotPasswordController::class, 'ForgetPasswordStore'])->name('ForgetPasswordPost');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'ResetPassword'])->name('ResetPasswordGet');
+Route::post('reset-password', [ForgotPasswordController::class, 'ResetPasswordStore'])->name('ResetPasswordPost');
 
 Auth::routes();
 

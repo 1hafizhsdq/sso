@@ -83,7 +83,7 @@
                                         Remember me
                                     </label>
                                 </div> --}}
-                                {{-- <a href="#!" class="text-body">Lupa password?</a> --}}
+                                <a href="{{ route('ForgetPasswordGet') }}" class="text-body">Lupa password?</a>
                             </div>
         
                             <div class="text-center text-lg-start mt-4 pt-2">
