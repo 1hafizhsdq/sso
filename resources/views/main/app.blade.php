@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             @endif
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
+            <a href="{{ (session()->get('user')['nip'] == "admin") ? route('update-akun-admin') : route('update-akun') }}" class="dropdown-item">
               <i class="fas fa-key mr-2"></i> Ubah Username / Password
             </a>
             <div class="dropdown-divider"></div>

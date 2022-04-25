@@ -42,10 +42,11 @@ class UserAdminController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'username' => 'required',
+            'username' => 'required|unique:users',
         ], [
             'name.required' => 'Nama tidak boleh kosong!',
             'username.required' => 'Username tidak boleh kosong!',
+            'username.unique' => 'Username sudah ada, silahkan coba yang lain!',
         ]);
         if ($validator->fails()) {
             $error = "";

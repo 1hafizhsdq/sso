@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -38,5 +41,36 @@ class HomeController extends Controller
         //     return 'belum login';
         // }
         return view('main.app');
+    }
+
+    public function updateAkun(){
+        $data['username'] = User::where('id_nip', session()->get('user')['nip'])->first();
+        return view('updateakun',$data);
+    }
+    
+    public function editUsername(Request $request){
+        User::where('id',$request->userid)->update(['username' => $request->username_baru]);
+        Toastr::success('Berhasil merubah username', 'Berhasil');
+        return back();
+    }
+    
+    public function editPassword(Request $request){
+        $user = User::find($request->userid);
+        if (!Hash::check($request->password_lama, $user->password)) {
+            Toastr::error('Password lama tidak sama!', 'Terjadi Kesalahan!');
+            return back();
+        } else {
+            if ($request->password_baru != $request->re_password_baru) {
+                Toastr::error('Password baru tidak sama!', 'Terjadi Kesalahan!');
+                return back();
+            } else {
+                User::where('id', $request->userid)->update([
+                    'password' => Hash::make($request->password_baru),
+                    'psw' => $request->password_baru,
+                ]);
+                Toastr::success('Berhasil merubah password', 'Berhasil');
+                return back();
+            }
+        }
     }
 }
