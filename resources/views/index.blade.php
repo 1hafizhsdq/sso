@@ -24,16 +24,20 @@
         <div class="container-fluid">
             <div class="row">
                 @foreach ($aplikasi as $apk)
-                <div class="card text-center mr-3" style="width: 18rem;">
-                    <div class="card-body">
-                        <div class="row text-center"><h5 class="card-title"><b>{{ $apk->nama_aplikasi }}</b></h5></div>
-                        <div class="row"><img src="{{ asset('icon_aplikasi') }}/{{ $apk->icon_aplikasi }}" alt="{{ $apk->nama_aplikasi }}" class="brand-image img-circle elevation-3" width="100px" height="100px"></div>
-                        <div class="row"><a href="#" class="btn btn-primary">Akses</a></div>
+                <div class="col-md-3">
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img style="height: 100px" class="profile-user-img img-fluid img-circle" src="{{ asset('icon_aplikasi') }}/{{ $apk->icon_aplikasi }}"
+                                    alt="User profile picture">
+                            </div>
+                            <h3 class="profile-username text-center">{{ $apk->nama_aplikasi }}</h3>
+                            <hr>
+                            <a target="_blank" href="//{{ $apk->route_aplikasi }}" class="btn btn-primary btn-block"><b>Akses</b></a>
+                        </div>
                     </div>
                 </div>
                 @endforeach
-                <div class="col-md-3">
-                    </div>
             </div>
         </div>
     </section>

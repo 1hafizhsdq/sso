@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/coba', function () {
+    return view('auth.logingoogle');
+});
 
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/internal', [LoginAdminController::class, 'index'])->name('internal');
