@@ -41,7 +41,7 @@ class LoginController extends Controller
      */
 
     protected $maxAttempts = 3;
-    
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -67,8 +67,8 @@ class LoginController extends Controller
             'nama' => $pns->nama,
         ];
         $jwt = JWT::encode($payload,LoginController::$SECRET_KEY, 'HS256');
-        // setcookie('logged_in-SDA',$jwt);
-        setcookie('logged_in-SDA',$jwt,time()+100,'/', '','',FALSE);
+        // setcookie('logged_in-SDA',$jwt,time()+100,'/', '','',FALSE);
+        setcookie('logged_in-SDA',$jwt,time() + 24 * 3600,'/', '.sidoarjokab.go.id','',FALSE); //cookie time 1day
     }
 
     public function logout(Request $request)
